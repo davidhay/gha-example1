@@ -15,9 +15,13 @@ jobs:
             - os: macos-latest
               node: 10
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
           node-version: \${{ matrix.node }} 
-      - run: npm ci - run: npm run build --if-present
+      - name: npm clean install
+        run: npm ci 
+      - name: build step
+        run: npm run build --if-present
