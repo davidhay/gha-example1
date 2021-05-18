@@ -1,8 +1,10 @@
 name: build
 on:
   push:
-    paths:
-      - '\*\*.js'
+    paths-ignore: 
+      - '*.md'
+    branches: [ main ]
+  
 jobs:
   build:
     name: my job
